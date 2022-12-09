@@ -1,29 +1,39 @@
-var studentOne = {
-    firstName: 'Syd',
-    lastName: 'Barrett',
-    age: 60,
-    location: 'Cambridge'
-};
-var studentTwo = {
-    firstName: 'Will',
-    lastName: 'Oldham',
-    age: 51,
-    location: 'Louisville'
-};
-var studentsList = [studentOne, studentTwo];
-var table = document.createElement('table');
+interface Student {
+	firstName: string;
+	lastName: string;
+	age: number;
+	location: string;
+}
+
+const studentOne: Student = {
+	firstName: 'Syd',
+	lastName: 'Barrett',
+	age: 60,
+	location: 'Cambridge'
+}
+
+const studentTwo: Student = {
+	firstName: 'Will',
+	lastName: 'Oldham',
+	age: 51,
+	location: 'Louisville'
+}
+
+const studentsList = [studentOne, studentTwo];
+const table: HTMLTableElement = document.createElement('table');
+
 document.body.appendChild(table);
-var head = table.createTHead();
-var row = head.insertRow();
-var th1 = row.insertCell(0);
-var th2 = row.insertCell(1);
+const head: HTMLTableSectionElement = table.createTHead();
+const row: HTMLTableRowElement = head.insertRow();
+const th1: HTMLTableHeaderCellElement = row.insertCell(0);
+const th2: HTMLTableHeaderCellElement = row.insertCell(1);
 th1.innerHTML = ("<b>First Name</b>");
 th2.innerHTML = ("<b>Location</b>");
-var body = table.createTBody();
-studentsList.map(function (student) {
-    var newRow = body.insertRow();
-    var firstNameRow = newRow.insertCell();
-    var locationRow = newRow.insertCell();
-    firstNameRow.innerHTML = student.firstName;
-    locationRow.innerHTML = student.location;
-});
+const body: HTMLTableSectionElement = table.createTBody();
+studentsList.map((student) => {
+	const newRow: HTMLTableRowElement = body.insertRow();
+	const firstNameRow: HTMLTableCellElement = newRow.insertCell();
+	const locationRow: HTMLTableCellElement= newRow.insertCell();
+	firstNameRow.innerHTML = student.firstName;
+	locationRow.innerHTML = student.location;
+})
